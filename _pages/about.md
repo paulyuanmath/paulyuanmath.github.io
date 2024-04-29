@@ -2,24 +2,26 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: 
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: PaulYuan.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Office: TU 821</p>
+    <p>PolyU</p>
+    <p>Hong Kong SAR, China</p>
 
 news: true # includes a list of news items
+latest_posts:
+  enabled: 
+  scrollable: false # adds a vertical scroll bar if there are more than 3 new posts items
+  limit: 3 # leave blank to include all the blog posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am an Assistant Professor in [Department of Applied Mathematics](https://www.polyu.edu.hk/ama/), The Hong Kong Polytechnic University. I was a Research Assistant Professor in the same department. Before that. I was a research fellow in [NExT Research Center](https://www.nextcenter.org/) , School of Computing, National University of Singapore, working with [Prof. Tat-Seng CHUA](https://www.chuatatseng.com/). I was a co-founder and the CEO of YIDU AI Private Limited (an AI start-up based in Singapore) from 2018 to 2020. 
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I obtained my PhD in Mathematics, from Department of Mathematics, National University of Singapore in 2020. My Ph.D supervisor is [Prof. Kim-Chuan TOH](https://blog.nus.edu.sg/mattohkc/). I was fortunately supervised by [Prof. Defeng SUN](https://www.polyu.edu.hk/ama/people/academic-staff/prof-sun-defeng/) from 2015 to 2018. Prior to NUS, I obtained my Bachelor's degree in Computational Mathematics from University of Science and Technology of China (USTC) in 2015, where I was supervised by [Prof. Juyong ZHANG](http://staff.ustc.edu.cn/~juyong/). 
