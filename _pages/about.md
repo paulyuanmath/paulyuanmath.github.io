@@ -15,7 +15,7 @@ profile:
 
 news: true # includes a list of news items
 latest_posts:
-  enabled: 
+  enabled: false
   scrollable: false # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
