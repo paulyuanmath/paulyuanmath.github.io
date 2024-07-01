@@ -1,10 +1,9 @@
 {
   "basics": {
     "name": "Yancheng Yuan",
-    "label": "Scientist",
+    "label": "Researcher",
     "image": "",
-    "email": "yancheng.yuan@polyu.edu.hk",
-    "url": "https://www.polyu.edu.hk/ama/people/academic-staff/dr-yuan-yancheng/"
+    "email": "yancheng.yuan@polyu.edu.hk"
   },
   "interests": [
     {
@@ -36,11 +35,17 @@
     }
   ],
   "work": [
+      {
+        "name": "Department of Data Science and Artificial Intelligence, The Hong Kong Polytechnic University",
+        "position": "Assistant Professor",
+        "startDate": "2024",
+        "endDate": "Now"
+      },
     {
       "name": "Department of Applied Mathematics, The Hong Kong Polytechnic University",
       "position": "Assistant Professor",
       "startDate": "2023",
-      "endDate": "Now"
+      "endDate": "2024"
     },
     {
       "name": "Department of Applied Mathematics, The Hong Kong Polytechnic University",
