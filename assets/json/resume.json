@@ -71,6 +71,11 @@
     }
   ],
   "awards": [
+      {
+        "title": "Best Paper Award Finalist",
+        "date": "2024",
+        "awarder": "ACM SIGIR"
+      },
     {
       "title": "Best Paper Award Finalist",
       "date": "2021",
