@@ -27,3 +27,5 @@ I am an Assistant Professor in [Department of Data Science and Artificial Intell
 I obtained my PhD in Mathematics, from Department of Mathematics, National University of Singapore in 2020. My Ph.D supervisor is [Prof. Kim-Chuan TOH](https://blog.nus.edu.sg/mattohkc/). I was fortunately supervised by [Prof. Defeng SUN](https://www.polyu.edu.hk/ama/people/academic-staff/prof-sun-defeng/) from 2015 to 2018. Prior to NUS, I obtained my Bachelor's degree in Computational Mathematics from University of Science and Technology of China (USTC) in 2015, where I was supervised by [Prof. Juyong ZHANG](http://staff.ustc.edu.cn/~juyong/). 
 
 **Contact**: X + Y, where X = yancheng.yuan, Y = @polyu.edu.hk
+
+**<span style="color:red"> Openings </span>**: I am looking for **postdoctoral fellows** with **foundation models/model compression/scientific computing** backgrounds to join our research group. Please feel free to send me an email with your **CV** if you are interested.  
