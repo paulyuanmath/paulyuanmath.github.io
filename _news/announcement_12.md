@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-We have released a Python package  [PyClustrPath](https://arxiv.org/pdf/2501.15964) for solving the convex clustering model with GPU acceleration. User feedbacks and suggestions are warmly welcome. 
+We have released a Python package  [PyClustrPath](https://arxiv.org/pdf/2501.15964) for solving the convex clustering model with GPU acceleration. User feedbacks and suggestions are warmly welcome! 
