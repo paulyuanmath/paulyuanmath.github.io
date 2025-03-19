@@ -5,5 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper [Adaptive sieving: A dimension re-
-duction technique for sparse optimization problems](https://arxiv.org/pdf/2306.17369) has been accepted for publication at **Mathematical Programming Computation**! :tada: 
+Our paper [Adaptive sieving: A dimension reduction technique for sparse optimization problems](https://arxiv.org/pdf/2306.17369) has been accepted for publication at **Mathematical Programming Computation**! :tada: 
