@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-An open source [HOT](https://www.polyu.edu.hk/ama/ior/HOT.html) solver for the optimal transport problem is made public at Github. Please **click** [here](https://github.com/PolyU-IOR/HOT) if you are interested in our solver. 
+An open source [HOT](https://www.polyu.edu.hk/ama/ior/HOT.html) solver for the optimal transport problem is made public at Github. Please **click** [here](https://github.com/PolyU-IOR/HOT) for the source codes of our solver. 
