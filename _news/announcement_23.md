@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our new manuscript [HPR-QP](https://arxiv.org/pdf/2507.02470) has been posted on arXiv. The open source HPR-QP solver will be made public soon!
+Our new manuscript [HPR-QP](https://arxiv.org/pdf/2507.02470) has been posted on arXiv. Please find the open source HPR-QP solver at our [Github](https://github.com/PolyU-IOR/HPR-QP) repository!
