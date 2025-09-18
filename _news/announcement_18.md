@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper [HOT: An efficient Halpern accelerating algorithm for optimal transport problems](https://arxiv.org/pdf/2408.00598) has been accepted for publication at **IEEE Transactions on Pattern Analysis and Machine Intelligence**! :tada: 
+Our paper [HOT: An efficient Halpern accelerating algorithm for optimal transport problems](https://arxiv.org/pdf/2408.00598) has been accepted for publication at **IEEE Transactions on Pattern Analysis and Machine Intelligence**! :tada:  Open source code can be found at [Github](https://github.com/PolyU-IOR/HOT).
