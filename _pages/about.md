@@ -32,6 +32,6 @@ I obtained my PhD in Mathematics, from Department of Mathematics, National Unive
 1. I am looking for highly self-motivated **PhD students** and  **postdoctoral fellows** with **foundation models/optimization/high performance computing/statistics** backgrounds to join our research group.
 2. I am looking for **Research Engineers** and **Research Assistants** with backgrounds in **LLMs/Scientific Computing** to join our research group.
 
-Please feel free to send me an email with your **CV** if you are interested. Shortlisted candidates will be contacted for online interviews.
+Please feel free to send me an email with your **CV/Transcripts** if you are interested. Shortlisted candidates will be contacted for online interviews.
 
   
