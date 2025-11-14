@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper [dHPR](https://arxiv.org/pdf/2511.10069) has been posted on arXiv. 
+Our paper [dHPR](https://arxiv.org/pdf/2511.10069) has been posted on arXiv! 
