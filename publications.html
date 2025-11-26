@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. YUAN Yancheng | Publications</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 
+                            300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 
+                            600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; color: #334155; }
+        ::selection { background: #e2e8f0; color: #0f172a; }
+        
+        /* Smooth height transition for folding */
+        .fold-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 1;
+        }
+        .fold-content.collapsed {
+            max-height: 0px !important;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .tab-btn.active {
+            color: #0f172a; 
+            border-bottom: 2px solid #0f172a;
+        }
+        .tab-btn {
+            color: #94a3b8; 
+            border-bottom: 2px solid transparent;
+        }
+    </style>
+
+    <script>
+        // ==========================================
+        //  PAPER DATABASE
+        // ==========================================
+        const papers = [
+            // --- PREPRINTS ---
+            {
+                id: "dhpr-25",
+                type: "preprint",
+                year: 2025,
+                topic: "Optimization",
+                title: "dHPR: A distributed Halpern Peaceman–Rachford method for non-smooth distributed optimization problems",
+                authors: "Zhangcheng Feng, Defeng Sun, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Guojun Zhang",
+                venue: "arXiv preprint arXiv:2511.10069, 2025.",
+                pdf: "https://arxiv.org/abs/2511.10069",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "mllmeraser-25",
+                type: "preprint",
+                year: 2025,
+                topic: "AI",
+                title: "MLLMEraser: Achieving test-time unlearning in multimodal large language models through activation steering",
+                authors: "Chenlu Ding, Jiancan Wu, Leheng Sheng, Fan Zhang, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Xiang Wang, and Xiangnan He",
+                venue: "arXiv preprint arXiv:2510.04217, 2025.",
+                pdf: "https://arxiv.org/abs/2510.04217",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "hpr-relation-25",
+                type: "preprint",
+                year: 2025,
+                topic: "Optimization",
+                title: "On the relationships among GPU-accelerated first-order methods for solving linear programming",
+                authors: "Kaihuang Chen, Defeng Sun, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Guojun Zhang, and Xinyuan Zhao",
+                venue: "arXiv preprint arXiv:2509.23903, 2025.",
+                pdf: "https://arxiv.org/abs/2509.23903",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "hpr-qp-25",
+                type: "preprint",
+                year: 2025,
+                topic: "Optimization",
+                title: "HPR-QP: A dual Halpern Peaceman–Rachford method for solving large-scale convex composite quadratic programming",
+                authors: "Kaihuang Chen, Defeng Sun, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Guojun Zhang, and Xinyuan Zhao",
+                venue: "arXiv preprint arXiv:2507.02470, 2025.",
+                pdf: "https://arxiv.org/abs/2507.02470",
+                code: "https://github.com/PolyU-IOR/HPR-QP",
+                projectPage: "https://hpr.top/",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "rlhf-25",
+                type: "preprint",
+                year: 2025,
+                topic: "Optimization, AI",
+                title: "Accelerating RLHF training with reward variance increase",
+                authors: "Zongin Yang, Zhexuan Gu, Houduo Qi and <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>",
+                venue: "arXiv preprint arXiv:2505.23247, 2025.",
+                pdf: "https://arxiv.org/abs/2505.23247",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "pyclustr-25",
+                type: "preprint",
+                year: 2025,
+                topic: "Optimization",
+                title: "PyClustrPath: An efficient Python package for generating clustering paths with GPU acceleration",
+                authors: "Hongfei Wu and <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>",
+                venue: "arXiv preprint arXiv:2501.15964, 2025.",
+                pdf: "https://arxiv.org/abs/2501.15964",
+                code: "https://github.com/D3IntOpt/PyClustrPath",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "epr-25",
+                type: "preprint",
+                year: 2025,
+                topic: "Optimization",
+                title: "Peaceman-Rachford splitting method converges ergodically for solving convex optimization problems",
+                authors: "Kaihuang Chen, Defeng Sun, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Guojun Zhang, and Xinyuan Zhao",
+                venue: "arXiv preprint arXiv:2501.07807, 2025.",
+                pdf: "https://arxiv.org/abs/2501.07807",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            // --- PUBLISHED PAPERS ---
+
+             {
+                id: "MMEA-26aaai",
+                type: "published",
+                year: 2026,
+                topic: "AI",
+                title: "Magnitude-modulated equivariant adapter for parameter-efficient fine-tuning of equivariant graph neural networks",
+                authors: "Dian Jin, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Xiao-Ming Tao",
+                venue: "The 40th Annual AAAI Conference on Artificial Intelligence, 2026.",
+                pdf: "https://arxiv.org/abs/2511.06696",
+                code: "https://github.com/CLaSLoVe/MMEA",
+                projectPage: "", 
+                link: "",
+                award: "",
+                image: "./images/mmea26.png"
+            },
+
+             {
+                id: "DFM-26aaai",
+                type: "published",
+                year: 2026,
+                topic: "AI",
+                title: "Delayed feedback modeling with influence functions",
+                authors: "Chenlu Ding, Jiancan Wu, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Cunchun Li, Xiang Wang, Dingxian Wang, Frank Yang, Andrew Rabinovich",
+                venue: "The 40th Annual AAAI Conference on Artificial Intelligence, 2026.",
+                pdf: "https://arxiv.org/abs/2502.01669",
+                code: "https://github.com/oceanoceanna/IF-DFM",
+                projectPage: "", 
+                link: "",
+                award: "",
+                image: "./images/ifdfm26.jpg"
+            },
+
+            {
+                id: "hpr-lp",
+                type: "published",
+                year: 2025,
+                topic: "Optimization",
+                title: "HPR-LP: An implementation of an HPR method for solving linear programming",
+                authors: "Kaihuang Chen, Defeng Sun, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Guojun Zhang, and Xinyuan Zhao",
+                venue: "Mathematical Programming Computation, 2025.",
+                pdf: "https://link.springer.com/article/10.1007/s12532-025-00292-0",
+                code: "https://github.com/PolyU-IOR/HPR-LP",
+                projectPage: "https://hpr.top/", 
+                link: "",
+                award: "",
+                image: "./images/hpr_lp.jpg"
+            },
+
+            {
+                id: "XAI-2025",
+                type: "published",
+                year: 2025,
+                topic: "AI",
+                title: "XAI for in-hospital mortality prediction via multimodal ICU data",
+                authors: "Xingqiao Li , Jindong Gu , Zhiyong Wang, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Fengxiang He, and Bo Du",
+                venue: "IEEE International Conference on Bioinformatics and Biomedicine, 2025.",
+                pdf: "https://arxiv.org/abs/2312.17624",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "" // No image provided -> Will not show placeholder
+            },
+
+             {
+                id: "TAS-2025",
+                type: "published",
+                year: 2025,
+                topic: "AI",
+                title: "A survey on large language model-based agents for statistics and data science",
+                authors: "Maojun Sun , Ruijian Han , Binyan Jiang , Houduo Qi , Defeng Sun, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Jian Huang",
+                venue: "The American Statistician, 2025. <br><span class='text-red-600 font-bold'>Selected as a discussion paper!</span>",
+                pdf: "https://arxiv.org/abs/2412.14222",
+                code: "",
+                projectPage: "",
+                link: "https://www.tandfonline.com/doi/full/10.1080/00031305.2025.2561140", 
+                award: "",
+                image: "./images/TAS25.png" // No image provided -> Will not show placeholder
+            },
+
+            {
+                id: "rpccm",
+                type: "published",
+                year: 2025,
+                topic: "AI",
+                title: "Randomly projected convex clustering model: Motivation, realization, and cluster recovery guarantees",
+                authors: "Ziwen Wang, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Jiaming Ma, Tieyong Zeng, and Defeng Sun",
+                venue: "Journal of Machine Learning Research, 26(137):1−57, 2025.",
+                pdf: "https://www.jmlr.org/papers/volume26/23-0384/23-0384.pdf",
+                code: "", 
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/rpccm.jpg"
+            },
+            
+            {
+                id: "LAMBDA-2025",
+                type: "published",
+                year: 2025,
+                topic: "AI",
+                title: "LAMBDA: A large model based data agent",
+                authors: "Maojun Sun , Ruijian Han , Binyan Jiang , Houduo Qi , Defeng Sun, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Jian Huang",
+                venue: "Journal of the American Statistical Association, 2025. <br><span class='text-red-600 font-bold'>Selected as a discussion paper!</span>",
+                pdf: "https://arxiv.org/abs/2412.14222",
+                code: "https://github.com/AMA-CMFAI/LAMBDA",
+                projectPage: "https://www.polyu.edu.hk/ama/cmfai/lambda.html",
+                link: "https://www.tandfonline.com/doi/full/10.1080/00031305.2025.2561140", 
+                award: "",
+                image: "./images/lambda_press.gif" // No image provided -> Will not show placeholder
+            },
+
+            {
+                id: "avatar-iccv25",
+                type: "published",
+                year: 2025,
+                topic: "AI",
+                title: "Expressive talking human from single-image with imperfect priors",
+                authors: "Jun Xiang, Yudong Guo, Leipeng Hu, Boyang Guo, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Juyong Zhang",
+                venue: "International Conference on Computer Vision, 2025 (ICCV '25).",
+                pdf: "https://openaccess.thecvf.com/content/ICCV2025/papers/Xiang_Expressive_Talking_Human_from_Single-Image_with_Imperfect_Priors_ICCV_2025_paper.pdf",
+                code: "",
+                projectPage: "https://ustc3dv.github.io/OneShotOneTalk/",
+                link: "", 
+                award: "", // Example Usage
+                image: "./images/iccv25.png"
+            },
+            {
+                id: "ICL-25-acl",
+                type: "published",
+                year: 2025,
+                topic: "AI",
+                title: "Enhancing input-label mapping in in-context learning with contrastive decoding",
+                authors: "Keqin Peng, Liang Ding, Yuanxin Ouyang, Meng Fang, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Dacheng Tao",
+                venue: "The 63rd Annual Meeting of the Association for Computational Linguistics, 2025 (ACL '25).",
+                pdf: "https://aclanthology.org/2025.acl-short.77.pdf",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/acl25.png" // No image
+            },
+            {
+                id: "HOT-25",
+                type: "published",
+                year: 2025,
+                topic: "Optimization",
+                title: "HOT: An efficient Halpern accelerating algorithm for optimal transport problems",
+                authors: "Guojun Zhang, Zhexuan Gu, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Defeng Sun",
+                venue: "IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 47: 6703--6714, 2025.",
+                pdf: "https://arxiv.org/abs/2408.00598",
+                code: "https://github.com/PolyU-IOR/HOT",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/HOT_preview.jpg"
+            },
+
+            {
+                id: "difussion-25sigir",
+                type: "published",
+                year: 2025,
+                topic: "AI",
+                title: "Addressing missing data issue for diffusion-based recommendation",
+                authors: "Wenyu Mao, Zhengyi Yang, Jiancan Wu, Haozhe Liu, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Xiang Wang and Xiangnan He",
+                venue: "The 48th International ACM SIGIR Conference on Research and Development in Information Retrieval, 2025 (SIGIR '25).",
+                pdf: "https://arxiv.org/abs/2505.12283",
+                code: "https://github.com/maowenyu-11/TDM",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/diffsigir25.png"
+            },
+
+            {
+                id: "AS-MPC-25",
+                type: "published",
+                year: 2025,
+                topic: "Optimization",
+                title: "Adaptive sieving: A dimension reduction technique for sparse optimization problems",
+                authors: "<strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Meixia Lin, Defeng Sun, and Kim-Chuan Toh",
+                venue: "Mathematical Programming Computation, 17: 585--616, 2025.",
+                pdf: "https://link.springer.com/article/10.1007/s12532-025-00282-2",
+                code: "https://github.com/linmeixia/Adaptive_Sieving_SparseOpt",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/as_illustrate_mpc.png"
+            },
+
+            {
+                id: "sppa-iclr25",
+                type: "published",
+                year: 2025,
+                topic: "Optimization",
+                title: "A tight convergence analysis of inexact stochastic proximal point algorithm for stochastic composite optimization problems",
+                authors: "Shulan Zhu, Chenglong Bao, Defeng Sun, and <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>",
+                venue: "The Thirteenth International Conference on Learning Representations, 2025 (ICLR '25).",
+                pdf: "https://openreview.net/pdf?id=n3TkrH7fEr",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/sppa_iclr25.png"
+            },
+
+            {
+                id: "unlearning-iclr25",
+                type: "published",
+                year: 2025,
+                topic: "AI",
+                title: "Unified parameter-efficient unlearning for LLMs",
+                authors: "Chenlu Ding, Jiancan Wu, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Jinda Lu, Kai Zhang, Alex Su, Xiang Wang, and Xiangnan He",
+                venue: "The Thirteenth International Conference on Learning Representations, 2025 (ICLR '25).",
+                pdf: "https://openreview.net/pdf?id=zONMuIVCAT",
+                code: "https://github.com/oceanoceanna/LLMEraser",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/LLMEraser.jpg"
+            },
+
+            {
+                id: "acc-ppa-siopt25",
+                type: "published",
+                year: 2025,
+                topic: "Optimization",
+                title: "Accelerating preconditioned ADMM via degenerate proximal point mappings",
+                authors: "Defeng Sun, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Guojun Zhang, and Xinyuan Zhao",
+                venue: "SIAM Journal on Optimization, 35: 2 1165--1193, 2025.",
+                pdf: "https://arxiv.org/abs/2403.18618",
+                code: "",
+                projectPage: "",
+                link: "https://epubs.siam.org/doi/10.1137/24M1650053", 
+                award: "",
+                image: "./images/acc_padmm.png"
+            },
+
+            {
+                id: "rosepo-24",
+                type: "preprint",
+                year: 2024,
+                topic: "AI",
+                title: "RosePO: Aligning LLM-based recommenders with human values",
+                authors: "Jiayi Liao, Xiangnan He, Ruobing Xie, Jiancan Wu, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Xingwu Sun, Zhanhui Kang, and Xiang Wang",
+                venue: "arXiv preprint arXiv:2410.12519, 2024.",
+                pdf: "https://arxiv.org/abs/2410.12519",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "adaprcc-24",
+                type: "preprint",
+                year: 2024,
+                topic: "AI",
+                title: "Adaptive self-supervised robust clustering for unstructured data with unknown cluster number",
+                authors: "Chenlu Ding, Jiancan Wu, Wei Lin, Shiyang Shen, Xiang Wang, and <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>",
+                venue: "arXiv preprint arXiv:2407.20119, 2024.",
+                pdf: "https://arxiv.org/abs/2407.20119",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "secant-siopt24",
+                type: "published",
+                year: 2024,
+                topic: "Optimization",
+                title: "An efficient sieving based secant method for sparse optimization problems with least-squares constraints",
+                authors: "Qian Li, Defeng Sun, and <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>",
+                venue: "SIAM Journal on Optimization, 34: 2 1187--2168, 2024.",
+                pdf: "https://arxiv.org/abs/2308.07812",
+                code: "",
+                projectPage: "",
+                link: "https://epubs.siam.org/doi/10.1137/23M1594443", 
+                award: "",
+                image: "./images/smop.png"
+            },
+
+            {
+                id: "ICL-24-acl",
+                type: "published",
+                year: 2024,
+                topic: "AI",
+                title: "Revisiting demonstration selection strategies in in-context learning",
+                authors: "Keqin Peng, Liang Ding, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Xuebo Liu, Min Zhang, Yuanxin Ouyang, and Dacheng Tao",
+                venue: "The 62nd Annual Meeting of the Association for Computational Linguistics, 2024 (ACL '24).",
+                pdf: "https://aclanthology.org/2024.acl-long.492.pdf",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/acl24.png" // No image
+            },
+
+            {
+                id: "ICML24",
+                type: "published",
+                year: 2024,
+                topic: "AI",
+                title: "Collective certified robustness against graph injection attacks",
+                authors: "Yuni Lai , Bailin Pan , Kaihuang Chen, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong> and Kai Zhou",
+                venue: "Proceedings of the 41th International Conference on Machine Learning, 2024 (ICML '24).",
+                pdf: "https://raw.githubusercontent.com/mlresearch/v235/main/assets/lai24a/lai24a.pdf",
+                code: "",
+                projectPage: "",
+                link: "https://icml.cc/virtual/2024/poster/34617", 
+                award: "",
+                image: "./images/icml24.png" // No image
+            },
+
+            {
+                id: "SIGIR24",
+                type: "published",
+                year: 2024,
+                topic: "AI",
+                title: "LLaRA: Large language-recommendation assistant",
+                authors: "Jiayi Liao, Sihang Li, Zhengyi Yang, Jiancan Wu,  <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Xiang Wang and Xiangnan He",
+                venue: "The 47th International ACM SIGIR Conference on Research and Development in Information Retrieval, 2024 (SIGIR '24). <br><span class='text-red-600 font-bold'>Best Paper Award Finalist!</span>",
+                pdf: "https://arxiv.org/pdf/2312.02445",
+                code: "https://github.com/ljy0ustc/LLaRA",
+                projectPage: "",
+                link: "https://dl.acm.org/doi/10.1145/3626772.3657690", 
+                award: "",
+                image: "./images/LLaRA.png"
+            },
+
+            {
+                id: "Exclusive_lasso24",
+                type: "published",
+                year: 2024,
+                topic: "Optimization",
+                title: "A highly efficient algorithm for solving exclusive Lasso problems",
+                authors: "Meixia Lin, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Defeng Sun, and Kim-Chuan Toh",
+                venue: "Optimization Methods and Software, 39: 3 489--518, 2024.",
+                pdf: "https://arxiv.org/abs/2306.14196",
+                code: "https://github.com/linmeixia/exclusive-lasso-solver",
+                projectPage: "",
+                link: "https://www.tandfonline.com/doi/citedby/10.1080/10556788.2023.2253356?scroll=top&needAccess=true", 
+                award: "",
+                image: "./images/exclusivelasso.png"
+            },
+
+            {
+                id: "Dreamrec23",
+                type: "published",
+                year: 2023,
+                topic: "AI",
+                title: "Generate what you prefer: Reshaping sequential recommendation via guided diffusion",
+                authors: "Zhengyi Yang, Jiancan Wu, Zhicai Wang, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Xiang Wang and Xiangnan He",
+                venue: "The 37th Conference on Neural Information Processing Systems, 2023 (NeurIPS '23).",
+                pdf: "https://openreview.net/pdf?id=oFpBnt6bgC",
+                code: "https://github.com/YangZhengyi98/DreamRec",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/DreamRec_pre.png"
+            },
+
+            {
+                id: "TNNLS25",
+                type: "published",
+                year: 2025,
+                topic: "AI",
+                title: "Understanding deep learning via decision boundary",
+                authors: "Shiye Lei, Fengxiang He, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Dacheng Tao",
+                venue: "IEEE Transactions on Neural Networks and Learning Systems, vol. 36(1) 1533 -- 1544, 2025.",
+                pdf: "https://arxiv.org/abs/2206.01515",
+                code: "",
+                projectPage: "",
+                link: "https://ieeexplore.ieee.org/document/10306309", 
+                award: "",
+                image: "./images/dbtnnls.png"
+            },
+
+            {
+                id: "InvCFWWW23",
+                type: "published",
+                year: 2023,
+                topic: "AI",
+                title: "Invariant collaborative filtering to popularity distribution shift",
+                authors: "An Zhang, Jingnan Zheng, Xiang Wang, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Tat-Seng Chua",
+                venue: "Proceedings of the ACM Web Conference, 2023 (WWW '23).",
+                pdf: "https://dl.acm.org/doi/pdf/10.1145/3543507.3583461",
+                code: "https://github.com/anzhang314/InvCF",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/InvCF_pre.png"
+            },
+
+            {
+                id: "llm4rec23",
+                type: "preprint",
+                year: 2023,
+                topic: "AI",
+                title: "Large language model Can interpret latent space of sequential recommender",
+                authors: "Zhengyi Yang, Jiancan Wu, Yanchen Luo, Jizhi Zhang, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, An Zhang, Xiang Wang, and Xiangnan He",
+                venue: "arXiv preprint arXiv:2310.20487, 2023.",
+                pdf: "https://arxiv.org/abs/2310.20487",
+                code: "https://github.com/YangZhengyi98/RecInterpreter",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "as-siopt22",
+                type: "published",
+                year: 2022,
+                topic: "Optimization",
+                title: "A dimension reduction technique for large-scale structured sparse optimization problems with application to convex clustering",
+                authors: "<strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Tsung-Hui Chang, Defeng Sun, and Kim-Chuan Toh",
+                venue: "SIAM Journal on Optimization, 32: 3 2294–-2318, 2022.",
+                pdf: "https://epubs.siam.org/doi/10.1137/21M1441080",
+                code: "",
+                projectPage: "",
+                link: "https://epubs.siam.org/doi/10.1137/21M1441080", 
+                award: "",
+                image: ""
+            },
+
+             {
+                id: "ijaa22",
+                type: "published",
+                year: 2022,
+                topic: "AI",
+                title: "On the test accuracy and effective control of the COVID-19 pandemic: A case study in Singapore",
+                authors: "Guang Cheng, Sarah Yini Gao, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Chenxiao Zhang, and Zhichao Zheng",
+                venue: "INFORMS Journal on Applied Analytics, 52: 6 524--538, 2022.",
+                pdf: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3955828",
+                code: "",
+                projectPage: "",
+                link: "https://pubsonline.informs.org/doi/abs/10.1287/inte.2022.1117?journalCode=ijaa", 
+                award: "",
+                image: "./images/coverijaa.jpg"
+            },
+
+            {
+                id: "HPR22",
+                type: "preprint",
+                year: 2022,
+                topic: "Optimization",
+                title: "An efficient HPR algorithm for the Wasserstein barycenter problem with O(Dim(P)/ε) computational complexity",
+                authors: "Guojun Zhang, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Defeng Sun",
+                venue: "arXiv preprint arXiv:2211.14881, 2022.",
+                pdf: "https://arxiv.org/abs/2211.14881",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "CCM-jmlr21",
+                type: "published",
+                year: 2021,
+                topic: "AI",
+                title: "Convex clustering: Model, theoretical guarantee and efficient algorithm",
+                authors: "Defeng Sun, Kim-Chuan Toh, and <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>",
+                venue: "Journal of Machine Learning Research, 22(9): 1--32, 2021.",
+                pdf: "https://www.jmlr.org/papers/volume22/18-694/18-694.pdf",
+                code: "https://blog.nus.edu.sg/mattohkc/softwares/convexclustering/",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/CC2021_pre.png"
+            },
+
+            {
+                id: "WWW21",
+                type: "published",
+                year: 2021,
+                topic: "AI",
+                title: "Learning intents behind interactions with knowledge graph for recommendation",
+                authors: "Xiang Wang, Tinglin Huang, Dingxian Wang, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Zhenguang Liu, Xiangnan He, and Tat-Seng Chua",
+                venue: "Proceedings of the ACM Web Conference, 2021 (WWW '21). <br><span class='text-red-600 font-bold'>Best Paper Award Finalist!</span>",
+                pdf: "https://dl.acm.org/doi/pdf/10.1145/3442381.3450133",
+                code: "https://github.com/huangtinglin/Knowledge_Graph_based_Intent_Network",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/intent21.jpeg"
+            },
+
+            {
+                id: "sdpnal20",
+                type: "published",
+                year: 2020,
+                topic: "Optimization",
+                title: "SDPNAL+: A Matlab software for semidefinite programming with bound constraints (version 1.0)",
+                authors: "Defeng Sun, Kim-Chuan Toh, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Xinyuan Zhao",
+                venue: "Optimization Methods and Software, 35: 1 87--115, 2020.",
+                pdf: "https://www.tandfonline.com/doi/full/10.1080/10556788.2019.1576176",
+                code: "https://blog.nus.edu.sg/mattohkc/softwares/sdpnalplus/",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: ""
+            },
+
+            {
+                id: "ccm18icml",
+                type: "published",
+                year: 2018,
+                topic: "Optimization",
+                title: "An efficient semismooth Newton based algorithm for convex clustering",
+                authors: "<strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Defeng Sun, and Kim-Chuan Toh",
+                venue: "Proceedings of the 35th International Conference on Machine Learning, 2018 (ICML '18).",
+                pdf: "https://proceedings.mlr.press/v80/yuan18a/yuan18a.pdf",
+                code: "https://blog.nus.edu.sg/mattohkc/softwares/convexclustering/",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/SSNAL2018_pre.png"
+            },
+
+            {
+                id: "icip14",
+                type: "published",
+                year: 2014,
+                topic: "AI",
+                title: "Robust interactive image segmentation via iterative refinement",
+                authors: "Yao Peng, Juyong Zhang, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, Shuyuan Zhu, and Lu Fang",
+                venue: "Proceedings of IEEE International Conference on Image Processing, 2014 (ICIP '14) <br><span class='text-red-600 font-bold'>Top 10% Paper Award!</span>",
+                pdf: "https://ieeexplore.ieee.org/document/7025889",
+                code: "",
+                projectPage: "",
+                link: "", 
+                award: "",
+                image: "./images/ICIP2014_pre.jpeg"
+            },
+
+        ];
+
+        // ==========================================
+        //  RENDER LOGIC
+        // ==========================================
+        
+        function renderPreprints() {
+            const container = document.getElementById('content-preprints');
+            container.innerHTML = ''; 
+            
+            const preprints = papers.filter(p => p.type === 'preprint');
+            
+            if (preprints.length === 0) {
+                container.innerHTML = '<p class="text-sm text-slate-500 italic pl-8">No active preprints.</p>';
+                return;
+            }
+
+            preprints.forEach((paper, index) => {
+                container.innerHTML += createPaperCard(paper, index + 1);
+            });
+            
+            attachObserver(container);
+        }
+
+        function renderPublished(viewMode) {
+            const container = document.getElementById('dynamic-paper-list');
+            container.innerHTML = ''; 
+
+            const publishedPapers = papers.filter(p => p.type === 'published');
+            let groups = {};
+            let sortedKeys = [];
+
+            if (viewMode === 'year') {
+                publishedPapers.forEach(p => {
+                    if (!groups[p.year]) groups[p.year] = [];
+                    groups[p.year].push(p);
+                });
+                sortedKeys = Object.keys(groups).sort((a, b) => b - a);
+            } else {
+                const topicOrder = ["Optimization", "AI"];
+                topicOrder.forEach(t => groups[t] = []); 
+                publishedPapers.forEach(p => {
+                    if (!groups[p.topic]) groups[p.topic] = [];
+                    groups[p.topic].push(p);
+                });
+                sortedKeys = topicOrder; 
+            }
+
+            sortedKeys.forEach(groupKey => {
+                const groupPapers = groups[groupKey];
+                if (!groupPapers || groupPapers.length === 0) return;
+
+                const sectionId = `section-${groupKey.toString().replace(/[^a-zA-Z0-9]/g, '-')}`;
+                const sectionHTML = `
+                    <div class="mb-10 fade-in">
+                        <button onclick="toggleSection('${sectionId}')" class="flex items-center gap-4 group w-full text-left focus:outline-none mb-6">
+                            <h3 class="text-3xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">${groupKey}</h3>
+                            <span id="icon-${sectionId}" class="text-2xl font-mono text-slate-900 group-hover:text-blue-700 transition-colors">[−]</span>
+                        </button>
+                        <div id="content-${sectionId}" class="fold-content space-y-8 border-l-2 border-slate-200 ml-3 pl-4 md:pl-6">
+                            ${groupPapers.map((paper, index) => createPaperCard(paper, index + 1)).join('')}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += sectionHTML;
+            });
+
+            document.querySelectorAll('.fold-content').forEach(el => attachObserver(el));
+        }
+
+        function createPaperCard(paper, index) {
+            const makeLink = (url, label, customClass) => {
+                if (!url) return '';
+                const style = customClass || "text-blue-600 hover:text-blue-800 hover:underline";
+                return `<a href="${url}" target="_blank" class="${style} transition-colors">${label}</a>`;
+            };
+
+            const linksHTML = [
+                makeLink(paper.pdf, "[PDF]"),
+                makeLink(paper.code, "[Code]"),
+                makeLink(paper.projectPage, "[Project Page]"),
+                makeLink(paper.link, "[Link]"),
+                makeLink(paper.award, "[Award]", "text-amber-600 hover:text-amber-800 hover:underline font-bold") 
+            ].join(' ');
+
+            // Check if image exists (is not empty string)
+            const imageHTML = paper.image ? `
+                <div class="hidden sm:block flex-shrink-0 w-40 h-24 bg-slate-100 rounded border border-slate-200 overflow-hidden mt-1">
+                    <img src="${paper.image}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/160x96/f1f5f9/94a3b8?text=FIG'" />
+                </div>
+            ` : '';
+
+            return `
+                <article class="group pb-1">
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start">
+                        <div class="flex-shrink-0 pt-0.5">
+                            <span class="text-lg font-bold text-slate-400 font-mono">${index}.</span>
+                        </div>
+                        
+                        <div class="flex-grow min-w-0">
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors leading-snug text-left">
+                                ${paper.title}
+                            </h4>
+                            <p class="text-slate-700 mb-1 font-serif text-left">
+                                ${paper.authors}
+                            </p>
+                            <p class="text-slate-500 italic mb-3 text-sm text-left">${paper.venue}</p>
+                            
+                            <div class="flex flex-wrap gap-4 text-sm font-medium font-mono">
+                                ${linksHTML}
+                            </div>
+                        </div>
+
+                        ${imageHTML}
+                    </div>
+                </article>
+            `;
+        }
+
+        // ==========================================
+        //  RESIZE OBSERVER (Layout Fix)
+        // ==========================================
+        const observer = new ResizeObserver(entries => {
+            entries.forEach(entry => {
+                const element = entry.target;
+                if (!element.classList.contains('collapsed')) {
+                    element.style.maxHeight = element.scrollHeight + "px";
+                }
+            });
+        });
+
+        function attachObserver(element) {
+            observer.observe(element);
+            if (!element.classList.contains('collapsed')) {
+                element.style.maxHeight = element.scrollHeight + "px";
+            }
+        }
+
+        // ==========================================
+        //  UI LOGIC
+        // ==========================================
+
+        function switchTab(view) {
+            renderPublished(view);
+            const yearBtn = document.getElementById('btn-year');
+            const topicBtn = document.getElementById('btn-topic');
+            
+            if (view === 'year') {
+                yearBtn.classList.add('active');
+                topicBtn.classList.remove('active');
+            } else {
+                yearBtn.classList.remove('active');
+                topicBtn.classList.add('active');
+            }
+        }
+
+        function toggleSection(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+
+            if (content.classList.contains('collapsed')) {
+                // EXPAND
+                content.classList.remove('collapsed');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.innerText = "[−]";
+                icon.classList.remove('text-slate-400');
+                icon.classList.add('text-slate-900');
+            } else {
+                // COLLAPSE
+                content.style.maxHeight = content.scrollHeight + "px"; 
+                requestAnimationFrame(() => {
+                    content.classList.add('collapsed');
+                    content.style.maxHeight = null;
+                });
+                icon.innerText = "[+]";
+                icon.classList.remove('text-slate-900');
+                icon.classList.add('text-slate-400');
+            }
+        }
+        
+        window.addEventListener('load', () => {
+            renderPreprints();
+            renderPublished('year');
+        });
+
+    </script>
+</head>
+
+<body class="antialiased font-sans bg-slate-50">
+
+    <header class="sticky top-0 z-50 bg-slate-50/90 backdrop-blur-md border-b border-slate-200">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-slate-900 tracking-tight">
+                Dr. YUAN Yancheng
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover:text-slate-900 transition-colors">About</a>
+                <a href="publications.html" class="text-blue-700 font-semibold transition-colors">Publications</a>
+                <a href="index.html#projects" class="hover:text-slate-900 transition-colors">Software</a>
+               <!-- <a href="index.html#contact" class="hover:text-slate-900 transition-colors">Contact</a>-->
+            </div>
+            <div class="md:hidden text-slate-600">Menu</div>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 lg:py-16">
+
+        <div class="mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+                Publications
+            </h1>
+            
+            <div class="bg-slate-100 border border-slate-200 rounded-lg p-4 mb-8">
+                <p class="text-xs text-slate-500 font-serif leading-relaxed text-justify hyphens-auto">
+                    <strong class="text-slate-700 font-sans uppercase tracking-wider text-[10px] block mb-1">Copyright Notice</strong>
+                    This material is presented to ensure timely dissemination of scholarly and technical work. Copyright and all rights therein are retained by authors or by other copyright holders. All persons copying this information are expected to adhere to the terms and constraints invoked by each author's copyright. In most cases, these works may not be reposted without the explicit permission of the copyright holder.
+                </p>
+            </div>
+        </div>
+
+        <div class="flex justify-end mb-4">
+            <a href="https://scholar.google.com/citations?user=l_4AX7QAAAAJ" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm hover:shadow-md hover:border-blue-300 transition-all text-sm font-medium text-slate-700 group">
+                <svg class="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2v-7.14L12 3zm0 10l-6-3.27 6-3.27 6 3.27-6 3.27z"/></svg>
+                Google Scholar Profile
+            </a>
+        </div>
+
+        <section class="mb-16">
+            <div class="flex items-center gap-3 mb-8 cursor-pointer group" onclick="toggleSection('preprints')">
+                <h2 class="text-2xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Preprints</h2>
+                <span id="icon-preprints" class="text-2xl font-mono text-slate-900 ml-2 transition-colors">[−]</span>
+            </div>
+
+            <div id="content-preprints" class="fold-content space-y-6 border-l-2 border-slate-200 ml-3 pl-4 md:pl-6 pb-2">
+                </div>
+        </section>
+
+
+        <section>
+            <div class="flex items-baseline justify-between border-b border-slate-200 mb-10">
+                <h2 class="text-2xl font-bold text-slate-900 py-2">Published Papers</h2>
+                
+                <div class="flex space-x-6 text-sm font-bold tracking-wide">
+                    <button id="btn-year" onclick="switchTab('year')" class="tab-btn active py-2 transition-colors hover:text-slate-700">By Year</button>
+                    <button id="btn-topic" onclick="switchTab('topic')" class="tab-btn py-2 transition-colors hover:text-slate-700">By Topic</button>
+                </div>
+            </div>
+
+            <div id="dynamic-paper-list">
+                </div>
+
+        </section>
+
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white py-8 mt-24">
+        <div class="max-w-6xl mx-auto px-6 text-center text-slate-400 text-sm">
+            <p>&copy; 2025 Dr. YUAN Yancheng. Department of Applied Mathematics, PolyU.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
