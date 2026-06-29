@@ -929,6 +929,28 @@
             attachObserver(container);
         }
 
+        // Publication-type classification used only for display grouping.
+        // The paper records above are kept unchanged.
+        const journalPaperIds = new Set([
+            "hpr-relation-25", "rosepo-24", "llm4rec23", "hpr-lp", "TAS-2025",
+            "rpccm", "LAMBDA-2025", "LAMBDA-2025-rejoinder", "HOT-25", "AS-MPC-25",
+            "acc-ppa-siopt25", "secant-siopt24", "Exclusive_lasso24", "TNNLS25", "as-siopt22",
+            "ijaa22", "CCM-jmlr21", "sdpnal20"
+        ]);
+
+        const aiProceedingPaperIds = new Set([
+            "eccv26", "CEITNet26", "MMEA-26aaai", "DFM-26aaai", "XAI-2025",
+            "avatar-iccv25", "ICL-25-acl", "difussion-25sigir", "sppa-iclr25", "unlearning-iclr25",
+            "ICL-24-acl", "ICML24", "SIGIR24", "Dreamrec23", "InvCFWWW23",
+            "WWW21", "ccm18icml", "icip14"
+        ]);
+
+        function getPublicationType(paper) {
+            if (journalPaperIds.has(paper.id)) return "Journal Papers";
+            if (aiProceedingPaperIds.has(paper.id)) return "AI Proceeding Papers";
+            return "Other Published Papers";
+        }
+
         function renderPublished(viewMode) {
             const container = document.getElementById('dynamic-paper-list');
             container.innerHTML = ''; 
@@ -943,14 +965,19 @@
                     groups[p.year].push(p);
                 });
                 sortedKeys = Object.keys(groups).sort((a, b) => b - a);
-            } else {
-                const topicOrder = ["Optimization", "AI"];
-                topicOrder.forEach(t => groups[t] = []); 
+            } else if (viewMode === 'publicationType') {
+                const publicationTypeOrder = ["Journal Papers", "AI Proceeding Papers"];
+                publicationTypeOrder.forEach(t => groups[t] = []); 
                 publishedPapers.forEach(p => {
-                    if (!groups[p.topic]) groups[p.topic] = [];
-                    groups[p.topic].push(p);
+                    const publicationType = getPublicationType(p);
+                    if (!groups[publicationType]) groups[publicationType] = [];
+                    groups[publicationType].push(p);
                 });
-                sortedKeys = topicOrder; 
+                sortedKeys = publicationTypeOrder.concat(
+                    Object.keys(groups)
+                        .filter(k => !publicationTypeOrder.includes(k))
+                        .sort()
+                ); 
             }
 
             sortedKeys.forEach(groupKey => {
@@ -1050,14 +1077,14 @@
         function switchTab(view) {
             renderPublished(view);
             const yearBtn = document.getElementById('btn-year');
-            const topicBtn = document.getElementById('btn-topic');
+            const typeBtn = document.getElementById('btn-type');
             
             if (view === 'year') {
                 yearBtn.classList.add('active');
-                topicBtn.classList.remove('active');
-            } else {
+                typeBtn.classList.remove('active');
+            } else if (view === 'publicationType') {
                 yearBtn.classList.remove('active');
-                topicBtn.classList.add('active');
+                typeBtn.classList.add('active');
             }
         }
 
@@ -1149,7 +1176,7 @@
                 
                 <div class="flex space-x-6 text-sm font-bold tracking-wide">
                     <button id="btn-year" onclick="switchTab('year')" class="tab-btn active py-2 transition-colors hover:text-slate-700">By Year</button>
-                    <button id="btn-topic" onclick="switchTab('topic')" class="tab-btn py-2 transition-colors hover:text-slate-700">By Topic</button>
+                    <button id="btn-type" onclick="switchTab('publicationType')" class="tab-btn py-2 transition-colors hover:text-slate-700">By Publication Type</button>
                 </div>
             </div>
 
