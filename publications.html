@@ -184,22 +184,6 @@
                 image: ""
             },
             {
-                id: "EvalDSA26",
-                type: "preprint",
-                year: 2026,
-                topic: "AI",
-                title: "DSAEval: Evaluating data science agents on a wide range of real-world data science problems",
-                authors: "Maojun Sun, Yifei Xie, Yue Wu, Ruijian Han, Binyan Jiang, Defeng Sun, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Jian Huang",
-                venue: "arXiv preprint arXiv:2601.13591, 2026.",
-                pdf: "https://arxiv.org/abs/2601.13591",
-                code: "",
-                projectPage: "https://dsaeval.github.io/DSAEval/",
-                link: "",
-                award: "",
-                image: ""
-            },
-                        
-            {
                 id: "pDCA26",
                 type: "preprint",
                 year: 2026,
@@ -312,6 +296,22 @@
             },
 
             // --- PUBLISHED PAPERS ---
+
+            {
+                id: "EvalDSA26",
+                type: "published",
+                year: 2026,
+                topic: "AI",
+                title: "DSAEval: Evaluating data science agents on a wide range of real-world data science problems",
+                authors: "Maojun Sun, Yifei Xie, Yue Wu, Ruijian Han, Binyan Jiang, Defeng Sun, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Jian Huang",
+                venue: "The 2026 Conference on Empirical Methods in Natural Language Processing, 2026. (EMNLP '26)",
+                pdf: "https://arxiv.org/abs/2601.13591",
+                code: "",
+                projectPage: "https://dsaeval.github.io/DSAEval/",
+                link: "",
+                award: "",
+                image: "./images/dseval.png"
+            },
             
             {
                 id: "vaeinf26",
@@ -400,7 +400,7 @@
                 topic: "AI",
                 title: "SplatCtrlA: Generalizable single image to fully controllable 3D avatar",
                 authors: "Jun Xiang, Yudong Guo, Boyang Guo, <strong class='text-slate-900 underline decoration-slate-300 decoration-2'>Yancheng Yuan</strong>, and Juyong Zhang",
-                venue: "The 19th European Conference on Computer Vision, 2026 (ECCV '26), conditionally accepted.",
+                venue: "The 19th European Conference on Computer Vision, 2026 (ECCV '26).",
                 pdf: "",
                 code: "",
                 projectPage: "",
@@ -1011,14 +1011,14 @@
         // Publication-type classification used only for display grouping.
         // The paper records above are kept unchanged.
         const journalPaperIds = new Set([
-            "vaeinf26","rlhf-25","rehabit-26","hpr-relation-25", "rosepo-24", "llm4rec23", "hpr-lp", "TAS-2025",
+            "vaeinf26","rlhf-25","rehabit-26","hpr-relation-25", "rosepo-24", "llm4rec23", "hpr-lp", "TAS-2025-rejoin", "TAS-2025",
             "rpccm", "LAMBDA-2025", "LAMBDA-2025-rejoinder", "HOT-25", "AS-MPC-25",
             "acc-ppa-siopt25", "secant-siopt24", "Exclusive_lasso24", "TNNLS25", "as-siopt22",
             "ijaa22", "CCM-jmlr21", "sdpnal20"
         ]);
 
         const aiProceedingPaperIds = new Set([
-            "eccv26", "CEITNet26", "MMEA-26aaai", "DFM-26aaai", "XAI-2025",
+           "EvalDSA26","eccv26", "CEITNet26", "MMEA-26aaai", "DFM-26aaai", "XAI-2025",
             "avatar-iccv25", "ICL-25-acl", "difussion-25sigir", "sppa-iclr25", "unlearning-iclr25",
             "ICL-24-acl", "ICML24", "SIGIR24", "Dreamrec23", "InvCFWWW23",
             "WWW21", "ccm18icml", "icip14"
